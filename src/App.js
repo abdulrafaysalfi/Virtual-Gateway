@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import Login from "./screens/Login";
+import Register from "./screens/Register";
+import Dashboard from "./screens/Dashboard";
+import PasswordReset from "./screens/PasswordReset";
+import AddDevice from "./screens/AddDevice";
+import DeviceItem from "./screens/DeviceItem";
+import DeviceModal from "./screens/DeviceModal";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={Login} />
+        <Route exact path="/register" component={Register} />
+        <Route exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/resetpassword" component={PasswordReset} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/addDevice" component={AddDevice} />
+        <Route exact path="/devices" component={DeviceItem} />
+        <Route exact path="/modal" component={DeviceModal} />
+
+        <Redirect to="/" />
+      </Switch>
+    </BrowserRouter>
   );
 }
 

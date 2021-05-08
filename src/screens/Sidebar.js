@@ -1,0 +1,44 @@
+import React from "react";
+import "./Sidebar.css";
+import SidebarItem from "./SidebarItem";
+import DashboardIcon from "@material-ui/icons/Dashboard";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import DevicesIcon from "@material-ui/icons/Devices";
+import { useHistory } from "react-router-dom";
+function Sidebar(props) {
+  const history = useHistory();
+  const logout = () => {
+    history.push("/login");
+  };
+  const addDevice = () => {
+    history.push("/addDevice");
+  };
+  return (
+    <div className="sidebar">
+      <div className="sidebar__top">
+        <img
+          src="https://zigron.goabode.com/assets/images/app-logo-2.svg"
+          alt="logo"
+        />
+        <h3>Virtual Gateway</h3>
+      </div>
+      <div className="sidebarItems">
+        <SidebarItem
+          Icon={DashboardIcon}
+          className="sidebarItems__active"
+          title="Dashboard"
+          style={{ color: "white" }}
+        />
+        <SidebarItem
+          Icon={DevicesIcon}
+          onClick={addDevice}
+          title="Add Device"
+        />
+
+        <SidebarItem Icon={ExitToAppIcon} onClick={logout} title="Logout" />
+      </div>
+    </div>
+  );
+}
+
+export default Sidebar;
