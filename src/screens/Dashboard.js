@@ -6,9 +6,9 @@ import axios from "../axios";
 import AddIcon from "@material-ui/icons/Add";
 import DeviceItem from "./DeviceItem";
 import { useHistory } from "react-router-dom";
-
 import "./DeviceModal.css";
-import { Modal, Button, Form, Col } from "react-bootstrap";
+import { Modal, Button, Form } from "react-bootstrap";
+import NoDevice from "../components/NoDevice";
 function Dashboard(props) {
   const [devices, setDevices] = useState([]);
   const { username } = (props.location && props.location.state) || {};
@@ -19,7 +19,6 @@ function Dashboard(props) {
         response.data.filter((element) => element.createdBy === username)
       );
       console.log(devices);
-      /*console.log(devices);*/
     });
   }, []);
   const addDevice = () => {
@@ -84,20 +83,24 @@ function Dashboard(props) {
           </div>
 
           <div className="dashboard__body">
-            {devices.map((device) => (
-              <DeviceItem
-                onClick={() => {
-                  setId(device._id);
-                  setName(device.label);
-                  setMac(device.macAddress);
-                  setOwner(device.createdBy);
-                  handleShow();
-                }}
-                key={device.createdBy}
-                label={device.label}
-                status="offline"
-              />
-            ))}
+            {devices.length === 0 ? (
+              <NoDevice />
+            ) : (
+              devices.map((device) => (
+                <DeviceItem
+                  onClick={() => {
+                    setId(device._id);
+                    setName(device.label);
+                    setMac(device.macAddress);
+                    setOwner(device.createdBy);
+                    handleShow();
+                  }}
+                  key={device.__id}
+                  label={device.label}
+                  status="offline"
+                />
+              ))
+            )}
           </div>
         </div>
       </div>

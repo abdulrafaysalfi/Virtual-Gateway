@@ -9,7 +9,7 @@ function Login(props) {
   const [showFieldError, setShowFieldError] = useState("");
 
   const handleLogin = () => {
-    if (email == "" || password == "") {
+    if (email === "" || password === "") {
       setShowFieldError(true);
     } else {
       if (email.endsWith("@gmail.com")) {
@@ -66,7 +66,7 @@ function Login(props) {
                     Sign into your account
                   </p>
                   <div className="showError">
-                    {showFieldError == "invalid" && (
+                    {showFieldError === "invalid" && (
                       <small>Invalid Email or Password.</small>
                     )}
                   </div>
@@ -106,7 +106,7 @@ function Login(props) {
                       value="Login"
                     />
                   </form>
-                  <Link to="/" className="forgot-password-link">
+                  <Link to="/passwordreset" className="forgot-password-link">
                     Forgot password?
                   </Link>
                   <p className="login-card-footer-text">

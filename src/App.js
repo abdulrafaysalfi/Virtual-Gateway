@@ -7,6 +7,7 @@ import PasswordReset from "./screens/PasswordReset";
 import AddDevice from "./screens/AddDevice";
 import DeviceItem from "./screens/DeviceItem";
 import DeviceModal from "./screens/DeviceModal";
+import NoDevice from "./components/NoDevice";
 
 function App() {
   return (
@@ -20,7 +21,8 @@ function App() {
         <Route exact path="/addDevice" component={AddDevice} />
         <Route exact path="/devices" component={DeviceItem} />
         <Route exact path="/modal" component={DeviceModal} />
-
+        <Route exact path="/nodevice" component={NoDevice} />
+        <Route exact path="/passwordreset" component={PasswordReset} />
         <Redirect to="/" />
       </Switch>
     </BrowserRouter>
