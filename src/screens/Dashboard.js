@@ -11,8 +11,9 @@ import { Modal, Button, Form } from "react-bootstrap";
 import NoDevice from "../components/NoDevice";
 function Dashboard(props) {
   const [devices, setDevices] = useState([]);
-  const { username } = (props.location && props.location.state) || {};
   const history = useHistory();
+  const { username } = (props.location && props.location.state) || {};
+  // alert(username);
   useEffect(() => {
     axios.get("/api/virtualgateway").then((response) => {
       setDevices(

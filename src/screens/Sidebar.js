@@ -13,6 +13,9 @@ function Sidebar(props) {
   const addDevice = () => {
     history.push("/addDevice");
   };
+  const showDevice = () => {
+    history.push("/showdevices");
+  };
   return (
     <div className="sidebar">
       <div className="sidebar__top">
@@ -33,6 +36,11 @@ function Sidebar(props) {
           Icon={DevicesIcon}
           onClick={addDevice}
           title="Add Device"
+        />
+        <SidebarItem
+          Icon={DevicesIcon}
+          onClick={showDevice}
+          title="Show Device"
         />
 
         <SidebarItem Icon={ExitToAppIcon} onClick={logout} title="Logout" />

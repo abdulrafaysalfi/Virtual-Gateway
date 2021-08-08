@@ -8,6 +8,7 @@ import AddDevice from "./screens/AddDevice";
 import DeviceItem from "./screens/DeviceItem";
 import DeviceModal from "./screens/DeviceModal";
 import NoDevice from "./components/NoDevice";
+import ShowDevices from "./screens/ShowDevices";
 
 function App() {
   return (
@@ -17,12 +18,13 @@ function App() {
         <Route exact path="/register" component={Register} />
         <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/resetpassword" component={PasswordReset} />
-        <Route exact path="/login" component={Login} />
+
         <Route exact path="/addDevice" component={AddDevice} />
         <Route exact path="/devices" component={DeviceItem} />
         <Route exact path="/modal" component={DeviceModal} />
         <Route exact path="/nodevice" component={NoDevice} />
         <Route exact path="/passwordreset" component={PasswordReset} />
+        <Route exact path="/showdevices" component={ShowDevices} />
         <Redirect to="/" />
       </Switch>
     </BrowserRouter>

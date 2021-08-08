@@ -20,6 +20,22 @@
   /*flex-direction: row;*/
 }
 
+.showdevices__body {
+  width: 100%;
+  flex-direction: column;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #ebf1f3;
+  height: auto;
+  padding-left: 15px;
+
+  /*flex-direction: row;*/
+}
+.showdevices__body > div {
+  margin: 1rem;
+  /*flex-direction: row;*/
+}
+
 .dashboard__devices {
   width: 100%;
   display: flex;
